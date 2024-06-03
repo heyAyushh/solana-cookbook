@@ -1,14 +1,16 @@
 name: Test Python Files
 
 on:
+  schedule:
+    - cron: "0 0 * * *"
   push:
     branches:
       - main
   pull_request:
+    types: [opened, synchronize, reopened]
     branches:
       - main
-  schedule:
-    - cron: '0 0 * * 0' # Run every week
+
 jobs:
   run-python:
     runs-on: ubuntu-latest
